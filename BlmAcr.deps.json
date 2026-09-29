@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "BlmAcr/1.0.0": {
+        "dependencies": {
+          "PromeRotation.SDK.API15": "0.1.0-preview.8"
+        },
+        "runtime": {
+          "BlmAcr.dll": {}
+        }
+      },
+      "ECommons/3.2.0.3": {
+        "runtime": {
+          "lib/net10.0-windows7.0/ECommons.dll": {
+            "assemblyVersion": "3.2.0.3",
+            "fileVersion": "3.2.0.3"
+          }
+        }
+      },
+      "PromeRotation.SDK.API15/0.1.0-preview.8": {
+        "dependencies": {
+          "ECommons": "3.2.0.3"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BlmAcr/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommons/3.2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fDJHOQygG7a4ZAAPogR1Lqj0tCL8oXl18rCYGYXyx5183SHwW5zhYWd3TtmUhn+p5z+M9+LeeXN/HvQAKHhJww==",
+      "path": "ecommons/3.2.0.3",
+      "hashPath": "ecommons.3.2.0.3.nupkg.sha512"
+    },
+    "PromeRotation.SDK.API15/0.1.0-preview.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gMuTLRcKJiDiDxSNxjIxnv5awio1UTr6bJYU2Q+OXshXS9mPNh4yvEasBwA5K98kke7f8bksfOwZ0ometsQhAA==",
+      "path": "promerotation.sdk.api15/0.1.0-preview.8",
+      "hashPath": "promerotation.sdk.api15.0.1.0-preview.8.nupkg.sha512"
+    }
+  }
+}
