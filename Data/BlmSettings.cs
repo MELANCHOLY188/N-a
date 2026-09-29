@@ -27,6 +27,9 @@ public class BlmSettings
     /// <summary>斩杀无观测数据时的回退阈值（目标血量占比）</summary>
     public float KillFallbackShare = 0.02f;
 
+    /// <summary>停手持续时长（毫秒），到时自动解除</summary>
+    public int HoldTime = 3000;
+
     // === QT 默认值持久化（按模式） ===
     /// <summary>高难模式专用 QT 快照</summary>
     public Dictionary<string, bool> QtHighEndDefaults = new();
