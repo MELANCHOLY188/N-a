@@ -58,9 +58,11 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
         _gcdResolvers.Add(new TransposeGcd());    // 14 AF 转冰
 
         // oGCD 决策器链
-        _offGcdResolvers.Add(new ManafontOffGcd());   // 1  魔泉
-        _offGcdResolvers.Add(new AmplifierOffGcd());  // 2  详述
-        _offGcdResolvers.Add(new LeyLinesOffGcd());   // 3  黑魔纹
+        _offGcdResolvers.Add(new DefenseOffGcd());     // 0  自动减伤（魔罩）
+        _offGcdResolvers.Add(new MovementOffGcd());    // 1  移动瞬发（三连/迅捷）
+        _offGcdResolvers.Add(new ManafontOffGcd());    // 2  魔泉
+        _offGcdResolvers.Add(new AmplifierOffGcd());  // 3  详述
+        _offGcdResolvers.Add(new LeyLinesOffGcd());   // 4  黑魔纹
 
         // 注册 QT + 恢复当前模式快照
         BlmQT.Register();
@@ -71,6 +73,10 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
 
     public PAction? NextGcd()
     {
+        // 停手：紧急机制期间完全停手
+        if (BlmQT.Enabled(BlmQT.停手))
+            return null;
+
         // 每帧同步 AF 阶段（新 AF 阶段重置炽炎计数）
         BlmState.UpdatePhase(BlmGcdHelper.Gauge.InAstralFire);
 
@@ -84,6 +90,10 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
 
     public PAction? NextOffGcd()
     {
+        // 停手：紧急机制期间完全停手
+        if (BlmQT.Enabled(BlmQT.停手))
+            return null;
+
         foreach (var r in _offGcdResolvers)
         {
             if (r.Check().Success)
