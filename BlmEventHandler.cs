@@ -2,6 +2,7 @@
 // BlmEventHandler - 战斗事件处理器
 // ============================================================
 using PromeRotation.Core;
+using PromeRotation.Data;
 using PromeRotation.Rotation;
 
 namespace BlmAcr;
@@ -29,6 +30,9 @@ public sealed class BlmEventHandler : IRotationEventHandler
     public void OnBattleEnded()
     {
         BlmDamageWatcher.Reset();
+        // ★ 关键：重置起手已执行标志，否则下一次进战框架会跳过起手序列
+        // （官方 SimpleRotationEventHandler 标准做法）
+        PromeSettings.Instance.OpenerHasBeenExecuted = false;
     }
 
     public void OnTerritoryChanged(ushort territoryType) { }
