@@ -19,9 +19,15 @@ public class IceUmbralGcd : IDecisionResolver
             return new CheckResult(false, "不在冰阶段");
         if (BlmGcdHelper.AoeScene)
             return new CheckResult(false, "AOE场景交给AOE冰");
-        // 心已攒满：交给 Transpose 转火（对齐 Los：IsSingleTargetIceReadyToTranspose）
+        // 心已攒满：
+        //   - 有悖论：先打悖论（Los SelectIceGcd：UI3 HasParadox -> 25797，瞬发高伤不浪费）
+        //   - 无悖论：交给 Transpose 转火（对齐 Los：IsSingleTargetIceReadyToTranspose）
         if (BlmGcdHelper.Gauge.UmbralHearts >= 3)
+        {
+            if (BlmGcdHelper.Gauge.IsParadoxActive)
+                return new CheckResult(true, "心满先打悖论");
             return new CheckResult(false, "心满待转火");
+        }
         return new CheckResult(true, "就绪");
     }
 
@@ -48,7 +54,9 @@ public class IceUmbralGcd : IDecisionResolver
         if (mp < 800)
             return BlmGcdHelper.Gcd(BlmSkills.UmbralSoul);
 
-        // 心未满 -> 冰澈攒心（对齐 Los：3576）
+        // 心未满 -> 冰澈攒心（对齐 Los：3576）；心满+悖论 -> 悖论瞬发（不耗蓝）
+        if (gauge.UmbralHearts >= 3 && gauge.IsParadoxActive)
+            return BlmGcdHelper.Gcd(BlmSkills.Paradox);
         return BlmGcdHelper.Gcd(BlmSkills.BlizzardIV);
     }
 }
