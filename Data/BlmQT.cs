@@ -19,7 +19,12 @@ public static class BlmQT
     public const string 斩杀收尾 = "斩杀收尾";
     public const string 危险循环 = "危险循环";
     public const string AOE      = "AOE";
-    public const string 高难模式 = "高难模式";
+    public const string 雷DoT维持 = "雷DoT维持";
+    public const string 自动爆发  = "自动爆发";
+    public const string 移动瞬发  = "移动瞬发";
+    public const string 自动减伤  = "自动减伤";
+    public const string 停手      = "停手";
+    public const string 高难模式  = "高难模式";
 
     // === 唯一数据源：键名 -> 默认值 ===
     public static readonly IReadOnlyDictionary<string, bool> All = new Dictionary<string, bool>
@@ -28,7 +33,12 @@ public static class BlmQT
         { 斩杀收尾, true },    // 允许绝望斩杀
         { 危险循环, false },   // 赌暴击的激进循环
         { AOE,      true },    // 多目标自动 AOE
-        { 高难模式, true },    // 元数据键：模式切换（高难/日随）
+        { 雷DoT维持, true },   // 高雷云自动刷新
+        { 自动爆发,  true },   // 魔泉/详述/黑魔纹 自动释放
+        { 移动瞬发,  true },   // 移动中自动迅捷/三连
+        { 自动减伤,  true },   // 血 <30% 自动魔罩
+        { 停手,      false },  // 紧急停手（到时自动解除）
+        { 高难模式,  true },   // 元数据键：模式切换（高难/日随）
     };
 
     // === 模式归属 ===
@@ -39,7 +49,12 @@ public static class BlmQT
             { 斩杀收尾, BlmQtMode.Common },
             { 危险循环, BlmQtMode.Common },
             { AOE,      BlmQtMode.Common },
-            { 高难模式, BlmQtMode.Common },
+            { 雷DoT维持, BlmQtMode.Common },
+            { 自动爆发,  BlmQtMode.Common },
+            { 移动瞬发,  BlmQtMode.Common },
+            { 自动减伤,  BlmQtMode.DailyOnly },   // 日随专属：高难手动管减伤
+            { 停手,      BlmQtMode.Common },
+            { 高难模式,  BlmQtMode.Common },
         };
 
     /// <summary>获取指定 key 的默认值（不存在返回 false）</summary>
