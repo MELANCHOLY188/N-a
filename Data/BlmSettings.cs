@@ -22,7 +22,7 @@ public class BlmSettings
     public float KillSafety = 0.8f;
 
     /// <summary>高雷云 DoT 刷新阈值（秒）</summary>
-    public float DotRefreshSeconds = 3.5f;
+    public float DotRefreshSeconds = 3.0f;
 
     /// <summary>斩杀无观测数据时的回退阈值（目标血量占比）</summary>
     public float KillFallbackShare = 0.02f;
