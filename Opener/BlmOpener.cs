@@ -81,7 +81,7 @@ public sealed class BlmOpener : IOpener
             s.Add(OffGcd(BlmSkills.Triplecast));        // 三连：给末端爆发（#12/耀星#2/绝望 瞬发）
             s.Add(Gcd(BlmSkills.FireIV));               // 炽炎 #12（星魂 6 → 耀星可用）
             s.Add(Gcd(BlmSkills.FlareStar));            // 耀星 #2
-            s.Add(Gcd(BlmSkills.Despair));              // 绝望收尾
+            s.Add(Despair());                            // 绝望收尾（对齐 Los：不验证直接放）
             s.Add(OffGcd(BlmSkills.Transpose));         // 转冰（前有绝望缓冲）
             // 序列到此结束：暴雷/冰澈/回蓝/转火/DoT 维护全部交还常规决策器
 
@@ -92,6 +92,10 @@ public sealed class BlmOpener : IOpener
     // 起手动作全部带施放验证：失败时框架等待重试（动画锁定/时机未到），不跳过
     private static PAction Gcd(uint id)
         => new(id, ActionType.Gcd, ActionTargetType.Target) { RequiresVerification = true };
+
+    // 绝望：对齐 Los（level>=100 跳过验证，直接放；失败快速跳过不卡队列）
+    private static PAction Despair()
+        => new(BlmSkills.Despair, ActionType.Gcd, ActionTargetType.Target);
 
     private static PAction OffGcd(uint id)
         => new(id, ActionType.OffGcd, ActionTargetType.Self) { RequiresVerification = true };
