@@ -18,6 +18,11 @@ public class MovementOffGcd : IDecisionResolver
         var me = BlmGcdHelper.Me;
         if (me == null || !BlmGcdHelper.IsMovingNow)
             return new CheckResult(false, "未移动");
+        // 防连开：三连/迅捷 3 秒内刚用过就不再开
+        if (ActionHelper.RecentlyUsed(BlmSkills.Triplecast, 3000))
+            return new CheckResult(false, "三连刚用过");
+        if (ActionHelper.RecentlyUsed(BlmSkills.Swiftcast, 3000))
+            return new CheckResult(false, "迅捷刚用过");
         if (ActionHelper.IsReady(BlmSkills.Triplecast))
             return new CheckResult(true, "就绪");
         if (ActionHelper.IsReady(BlmSkills.Swiftcast))
