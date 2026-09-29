@@ -94,10 +94,17 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
         if (BlmQT.Enabled(BlmQT.停手))
             return null;
 
+        // oGCD 节流：距离上一个 oGCD 不足 700ms 不再发（动画锁定，防两个能力技卡手）
+        if (System.Environment.TickCount - BlmState.LastOffGcdTime < 700)
+            return null;
+
         foreach (var r in _offGcdResolvers)
         {
             if (r.Check().Success)
+            {
+                BlmState.MarkOffGcd();
                 return r.GetAction();
+            }
         }
         return null;
     }
