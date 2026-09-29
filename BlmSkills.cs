@@ -45,7 +45,9 @@ public static class BlmSkills
     public const uint Retrace       = 36988; // 魔纹重置
 
     // ---- 状态 ----
-    public const ushort FirestarterStatus = 481;  // 火苗（Firestarter）
+    public const ushort FirestarterStatus = 165;  // 火苗（Firestarter，Los/官方实证 165，非 481）
+    public const ushort SwiftcastBuff = 167;      // 迅捷咏唱
+    public const ushort TriplecastBuff = 1211;    // 三连咏唱
     public const ushort ThunderheadStatus = 3870; // 雷首（Thunderhead，自己身上 30s）
     public const ushort HighThunderDot    = 3871; // 高雷云 DoT（目标身上 30s）
     public const ushort HighThunderIIDot  = 3872; // 高雷二 DoT（目标身上 24s）
