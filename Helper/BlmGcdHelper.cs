@@ -2,6 +2,7 @@
 // BlmGcdHelper - 决策器共享静态工具
 // 量谱 / 玩家 / 目标 / DoT / 敌数 / AOE 场景判断
 // ============================================================
+using System;
 using System.Numerics;
 using Dalamud.Game.ClientState.JobGauge.Types;
 using Dalamud.Game.ClientState.Objects.Types;
@@ -57,22 +58,23 @@ public static class BlmGcdHelper
     }
 
     /// <summary>目标指定 DoT（3871 高雷云 / 3872 高雷二）是否需要刷新。
-    /// 对齐 Los/官方壳：RemainingTime 可能为负，取 Abs；多条重复状态取最大剩余。</summary>
+    /// 完全照抄 Los：RemainingMs = Abs(RemainingTime) * 1000f，阈值 3000ms（3 秒）；
+    /// 单位无论秒/毫秒都成立；多条重复状态取最大剩余。</summary>
     public static bool DotNeedsRefresh(IBattleChara? target, ushort dotStatusId)
     {
         if (target == null || target.IsDead) return false;
-        float threshold = BlmSettings.Instance.DotRefreshSeconds;
-        float maxRem = 0f;
+        float thresholdMs = BlmSettings.Instance.DotRefreshSeconds * 1000f; // 3.0s -> 3000ms
+        float maxRemMs = 0f;
         foreach (var s in target.StatusList)
         {
             if (s.StatusId == dotStatusId)
             {
-                float rem = s.RemainingTime < 0f ? -s.RemainingTime : s.RemainingTime;
-                if (rem > maxRem) maxRem = rem;
+                float remMs = Math.Abs(s.RemainingTime) * 1000f;
+                if (remMs > maxRemMs) maxRemMs = remMs;
             }
         }
-        if (maxRem <= 0f) return true; // 目标身上没有有效 DoT
-        return maxRem < threshold;     // 剩余低于阈值才刷新
+        if (maxRemMs <= 0f) return true; // 目标身上没有有效 DoT
+        return maxRemMs < thresholdMs;   // 剩余低于 3 秒才刷新
     }
 
     /// <summary>以自身为圆心 radius 码内的可攻击敌人数量</summary>
