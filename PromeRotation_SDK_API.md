@@ -1,0 +1,634 @@
+# PromeRotation SDK API15 关键接口签名
+
+> 来源: C:\Users\1\.nuget\packages\promerotation.sdk.api15\0.1.0-preview.8\ref\net10.0-windows7.0\PromeRotation.dll
+
+## PromeRotation.Plugin
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (68):
+  - get_PluginInterface: () -> Dalamud.Plugin.IDalamudPluginInterface
+  - set_PluginInterface: (Dalamud.Plugin.IDalamudPluginInterface) -> void
+  - get_CommandManager: () -> Dalamud.Plugin.Services.ICommandManager
+  - set_CommandManager: (Dalamud.Plugin.Services.ICommandManager) -> void
+  - get_ClientState: () -> Dalamud.Plugin.Services.IClientState
+  - set_ClientState: (Dalamud.Plugin.Services.IClientState) -> void
+  - get_DataManager: () -> Dalamud.Plugin.Services.IDataManager
+  - set_DataManager: (Dalamud.Plugin.Services.IDataManager) -> void
+  - get_Log: () -> Dalamud.Plugin.Services.IPluginLog
+  - set_Log: (Dalamud.Plugin.Services.IPluginLog) -> void
+  - get_NotificationManager: () -> Dalamud.Plugin.Services.INotificationManager
+  - set_NotificationManager: (Dalamud.Plugin.Services.INotificationManager) -> void
+  - get_Instance: () -> PromeRotation.Plugin
+  - set_Instance: (PromeRotation.Plugin) -> void
+  - get_Configuration: () -> PromeRotation.Configuration
+  - set_Configuration: (<0x80>) -> <0x1f>
+  - get_ConfigWindow: () -> PromeRotation.Windows.ConfigWindow
+  - set_ConfigWindow: (<0x80>) -> <0x1f>
+  - get_MainWindow: () -> PromeRotation.Windows.MainWindow
+  - set_MainWindow: (<0x80>) -> <0x1f>
+  - get_SettingsWindow: () -> PromeRotation.Windows.SettingsWindow
+  - set_SettingsWindow: (<0x80>) -> <0x1f>
+  - get_QTWindow: () -> PromeRotation.Windows.QTWindow
+  - set_QTWindow: (<0x80>) -> <0x1f>
+  - get_LogSystem: () -> PromeRotation.LogSystem.LogSystemService
+  - set_LogSystem: (<0x80>) -> <0x1f>
+  - get_ScriptTests: () -> PromeRotation.Scripting.Testing.ScriptTestService
+  - get_GreenMoveSystem: () -> PromeRotation.GreenMoveSystem.IGreenMoveSystem
+  - get_SpeedMultiplierService: () -> PromeRotation.Service.ISpeedMultiplierService
+  - get_SafeZoneSetting: () -> PromeRotation.Spatial.SafeZone.SafeZoneSetting
+  - get_SafeZoneManager: () -> PromeRotation.Spatial.SafeZone.SafeZoneManager
+  - get_SafeZoneRegistry: () -> PromeRotation.Spatial.SafeZone.SafeZoneRegistry
+  - get_SafeZoneMovementStatus: () -> PromeRotation.Spatial.SafeZone.ISafeZoneMovementStatus
+  - get_DrawManager: () -> PromeRotation.Spatial.Drawing.DrawManager
+  - AttachDxRendererBackend: (PromeRotation.Spatial.Drawing.IDrawRenderer) -> void
+  - DetachDxRendererBackend: (PromeRotation.Spatial.Drawing.IDrawRenderer) -> void
+  - IsDrawRendererAvailable: (PromeRotation.Spatial.Drawing.DrawRendererKind) -> bool
+  - SetDefaultSpeedMultiplier: (float) -> void
+  - ResetDefaultSpeedMultiplier: () -> void
+  - GetDefaultSpeedMultiplier: () -> float
+  - GetEffectiveSpeedMultiplier: () -> float
+  - IsSpeedMultiplierAvailable: () -> bool
+  - HasTransientSpeedMultiplier: () -> bool
+  - get_WorldCircle: () -> PromeRotation.UI.WorldGroundCircle
+  - get_EditorWindow: () -> PromeRotation.Timeline.UI.TimelineEditorWindow
+  - get_DevWindow: () -> PromeRotation.Timeline.UI.TimelineWindow
+  - get_PureTimelineEditorWindow: () -> PromeRotation.PureTimeline.UI.PtlEditorWindow
+  - get_SelfUpdateCoordinator: () -> PromeRotation.Updaters.SelfUpdateCoordinator
+  - .ctor: (Dalamud.Plugin.IDalamudPluginInterface, Dalamud.Plugin.Services.ISigScanner, Dalamud.Plugin.Services.IObjectTable, Dalamud.Plugin.Services.IGameInteropProvider) -> void
+  - Dispose: () -> void
+  - TryFinalExternalAcrCleanup: () -> void
+  - SavePluginSettings: () -> void
+  - OnFrameworkUpdate: (Dalamud.Plugin.Services.IFramework) -> void
+  - OpenQtWindow: () -> void
+  - CloseQtWindow: () -> void
+  - NormalTPOnCommand: (string, string) -> void
+  - CameraModeAlign: (string, string) -> void
+  - OnJobChanged: (uint) -> void
+  - OnLogin: () -> void
+  - OnLogout: () -> void
+  - OnPluginsLoad_InitialCheck: (Dalamud.Plugin.Services.IFramework) -> void
+  - OnVerificationStateChanged: ( . ) -> void
+  - TryActivatePluginsAndRotations: () -> void
+  - ToggleConfigUi: () -> void
+  - ToggleMainUi: () -> void
+  - LoadSettings: () -> void
+  - SaveSettings: () -> void
+  - <.ctor>b__122_0: (int, int) -> void
+- 字段 (48):
+  - <PluginInterface>k__BackingField: Dalamud.Plugin.IDalamudPluginInterface
+  - <CommandManager>k__BackingField: Dalamud.Plugin.Services.ICommandManager
+  - <ClientState>k__BackingField: Dalamud.Plugin.Services.IClientState
+  - <DataManager>k__BackingField: Dalamud.Plugin.Services.IDataManager
+  - <Log>k__BackingField: Dalamud.Plugin.Services.IPluginLog
+  - <NotificationManager>k__BackingField: Dalamud.Plugin.Services.INotificationManager
+  - <Instance>k__BackingField: PromeRotation.Plugin
+  - <Configuration>k__BackingField: PromeRotation.Configuration
+  - WindowSystem: Dalamud.Interface.Windowing.WindowSystem
+  - <ConfigWindow>k__BackingField: PromeRotation.Windows.ConfigWindow
+  - <MainWindow>k__BackingField: PromeRotation.Windows.MainWindow
+  - TimeLineWindow: PromeRotation.Timeline.UI.TimelineWindow
+  - TimelineEditorWindow: PromeRotation.Timeline.UI.TimelineEditorWindow
+  - PtlEditorWindow: PromeRotation.PureTimeline.UI.PtlEditorWindow
+  - <SettingsWindow>k__BackingField: PromeRotation.Windows.SettingsWindow
+  - <QTWindow>k__BackingField: PromeRotation.Windows.QTWindow
+  - <LogSystem>k__BackingField: PromeRotation.LogSystem.LogSystemService
+  - <ScriptTests>k__BackingField: PromeRotation.Scripting.Testing.ScriptTestService
+  - NormalTPCommand: string
+  - PromeCamera: string
+  - _actionFlowManager: PromeRotation.Managers.ActionFlowManager
+  - _communityRegistryClient: PromeRotation.DownloadSystem.CommunityRegistry.CommunityRegistryClient
+  - _speedMultiplierService: PromeRotation.Service.SpeedMultiplierService
+  - _greenMoveManager: PromeRotation.GreenMoveSystem.GreenMoveManager
+  - _safeZoneSetting: PromeRotation.Spatial.SafeZone.SafeZoneSetting
+  - _safeZoneManager: PromeRotation.Spatial.SafeZone.SafeZoneManager
+  - _safeZoneRegistry: PromeRotation.Spatial.SafeZone.SafeZoneRegistry
+  - _safeZoneMovementSystem: PromeRotation.Spatial.SafeZone.SafeZoneMovementSystem
+  - _drawManager: PromeRotation.Spatial.Drawing.DrawManager
+  - _imGuiRenderer: PromeRotation.Spatial.Drawing.Renderers.ImGuiRenderer
+  - _dxRendererAdapter: PromeRotation.Spatial.Drawing.Renderers.DxRendererAdapter
+  - _drawDispatcher: PromeRotation.Spatial.Drawing.DrawDispatcher
+  - _greenMoveCommands: PromeRotation.GreenMoveSystem.GreenMoveCommands
+  - _promeCommandManager: PromeRotation.Managers.PromeCommandManager
+  - _greenMoveIpc: PromeRotation.GreenMoveSystem.GreenMoveIpc
+  - _greenMoveDebugUI: PromeRotation.GreenMoveSystem.GreenMoveDebugUI
+  - _promeIpcProvider: PromeRotation.PromeIpcProvider
+  - _onLogoutHandler: .LogoutDelegate
+  - _configFilePath: string
+  - _worldcursorcircle: PromeRotation.UI.WorldGroundCircle
+  - _floatingIcon: PromeRotation.UI.FloatingIconButton
+  - targetSelectorDtrManager: PromeRotation.Managers.TargetSelectorDtrManager
+  - _targetSelectorController: PromeRotation.TargetSelector.TargetSelectorController
+  - _gcdWatchdog: PromeRotation.Service.GcdWatchdogService
+  - _pluginManager: PromeRotation.Plugins.PromePluginManager
+  - _pluginsLoadState: int
+  - _eventHookManager: PromeRotation.Managers.CombatEventManager.EventHookManager
+  - _selfUpdateCoordinator: PromeRotation.Updaters.SelfUpdateCoordinator
+
+## PromeRotation.Timeline.Core.IJobNodeDescriptor
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (4):
+  - get_NodeDisplayName: () -> string
+  - get_Params: () -> PromeRotation.Timeline.Core.NodeParamInfo[]
+  - GetParam: (string) -> string
+  - SetParam: (string, string) -> void
+
+## PromeRotation.Timeline.Core.IJobNodeProvider
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (3):
+  - RegisterNodes: (PromeRotation.Timeline.Core.RotationNodeContext) -> void
+  - GetConditionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<valuetype System.ValueTuple`3<string, string, class System.Func`1<PromeRotation.Timeline.Core.ICondition>>>
+  - GetActionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<valuetype System.ValueTuple`3<string, string, class System.Func`1<PromeRotation.Timeline.Core.IAction>>>
+
+## PromeRotation.Rotation.CountDownHandler
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (4):
+  - get_ScheduledActions: () -> class System.Collections.Generic.List`1<valuetype System.ValueTuple`2<int, class System.Func`1<PromeRotation.Data.PAction>>>
+  - AddAction: (int, class System.Func`1<PromeRotation.Data.PAction>) -> void
+  - AddAction: (int, PromeRotation.Data.PAction) -> void
+  - .ctor: () -> void
+- 字段 (1):
+  - <ScheduledActions>k__BackingField: class System.Collections.Generic.List`1<valuetype System.ValueTuple`2<int, class System.Func`1<PromeRotation.Data.PAction>>>
+
+## PromeRotation.Rotation.IOpener
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (3):
+  - get_OpenerName: () -> string
+  - InitializeCountdown: (PromeRotation.Rotation.CountDownHandler) -> void
+  - get_InCombatSequence: () -> class System.Collections.Generic.List`1<PromeRotation.Data.PAction>
+
+## PromeRotation.Rotation.IRotation
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (8):
+  - NextAlways: () -> PromeRotation.Data.PAction
+  - NextGcd: () -> PromeRotation.Data.PAction
+  - NextOffGcd: () -> PromeRotation.Data.PAction
+  - UpdateDebugStatus: () -> void
+  - GetOpener: () -> PromeRotation.Rotation.IOpener
+  - GetEventHandler: () -> PromeRotation.Rotation.IRotationEventHandler
+  - DrawSettings: () -> void
+  - DrawQTs: () -> void
+
+## PromeRotation.Rotation.IRotationEventHandler
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (7):
+  - OnUpdate: () -> void
+  - OnOutOfBattleUpdate: () -> void
+  - OnBattleStarted: () -> void
+  - OnBattleUpdate: () -> void
+  - OnNoTarget: () -> void
+  - OnBattleEnded: () -> void
+  - OnTerritoryChanged: (ushort) -> void
+
+## PromeRotation.Rotation.IRotationLifecycle
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (2):
+  - OnEnterAcr: () -> void
+  - OnExitAcr: () -> void
+
+## PromeRotation.Rotation.IRotationMeta
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (2):
+  - get_QtList: () -> class System.Collections.Generic.IReadOnlyDictionary`2<string, bool>
+  - get_Openers: () -> class System.Collections.Generic.IReadOnlyDictionary`2<string, System.Type>
+
+## PromeRotation.Rotation.RotationMetadataAttribute
+- 继承: TypeSpec#71
+- 方法 (7):
+  - get_JobId: () -> uint
+  - get_RotationName: () -> string
+  - get_Author: () -> string
+  - get_Version: () -> string
+  - get_ContentScope: () -> PromeRotation.Rotation.AcrContentScope
+  - set_ContentScope: (PromeRotation.Rotation.AcrContentScope) -> void
+  - .ctor: (uint, string, string, string) -> void
+- 字段 (5):
+  - <JobId>k__BackingField: uint
+  - <RotationName>k__BackingField: string
+  - <Author>k__BackingField: string
+  - <Version>k__BackingField: string
+  - <ContentScope>k__BackingField: PromeRotation.Rotation.AcrContentScope
+
+## PromeRotation.Plugins.IPromeAsyncPlugin
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (1):
+  - StopAsync: (System.Threading.CancellationToken) -> System.Threading.Tasks.ValueTask
+
+## PromeRotation.Plugins.IPromePlugin
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (2):
+  - Initialize: () -> void
+  - DrawConfigUI: () -> void
+
+## PromeRotation.Plugins.IPromeTimelinePlugin
+- 继承: 1{93A5E2E7-E4CF-4798-ABFE-32A476EBCDD8}.2
+- 方法 (2):
+  - GetTimelineActionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromeTimelineActionDescriptor>
+  - GetTimelineConditionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromeTimelineConditionDescriptor>
+
+## PromeRotation.Plugins.PromeTimelineActionDescriptor
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (22):
+  - .ctor: (string, string, string, class System.Func`2<PromeRotation.Timeline.Core.ActionDto, PromeRotation.Timeline.Core.IAction>, class System.Func`1<PromeRotation.Timeline.Core.IAction>) -> void
+  - get_EqualityContract: () -> System.Type
+  - get_TypeKey: () -> string
+  - set_TypeKey: (<0x80>) -> <0x1f>
+  - get_DisplayName: () -> string
+  - set_DisplayName: (<0x80>) -> <0x1f>
+  - get_Description: () -> string
+  - set_Description: (<0x80>) -> <0x1f>
+  - get_CreateFromDto: () -> class System.Func`2<PromeRotation.Timeline.Core.ActionDto, PromeRotation.Timeline.Core.IAction>
+  - set_CreateFromDto: (<0x80>) -> <0x1f>
+  - get_CreateDefault: () -> class System.Func`1<PromeRotation.Timeline.Core.IAction>
+  - set_CreateDefault: (<0x80>) -> <0x1f>
+  - ToString: () -> string
+  - PrintMembers: (System.Text.StringBuilder) -> bool
+  - op_Inequality: (PromeRotation.Plugins.PromeTimelineActionDescriptor, PromeRotation.Plugins.PromeTimelineActionDescriptor) -> bool
+  - op_Equality: (PromeRotation.Plugins.PromeTimelineActionDescriptor, PromeRotation.Plugins.PromeTimelineActionDescriptor) -> bool
+  - GetHashCode: () -> int
+  - Equals: (object) -> bool
+  - Equals: (PromeRotation.Plugins.PromeTimelineActionDescriptor) -> bool
+  - <Clone>$: () -> PromeRotation.Plugins.PromeTimelineActionDescriptor
+  - .ctor: (PromeRotation.Plugins.PromeTimelineActionDescriptor) -> void
+  - Deconstruct: (byref, string, byref, string, byref) -> void
+- 字段 (5):
+  - <TypeKey>k__BackingField: string
+  - <DisplayName>k__BackingField: string
+  - <Description>k__BackingField: string
+  - <CreateFromDto>k__BackingField: class System.Func`2<PromeRotation.Timeline.Core.ActionDto, PromeRotation.Timeline.Core.IAction>
+  - <CreateDefault>k__BackingField: class System.Func`1<PromeRotation.Timeline.Core.IAction>
+
+## PromeRotation.Plugins.PromeTimelineConditionDescriptor
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (22):
+  - .ctor: (string, string, string, class System.Func`2<PromeRotation.Timeline.Core.ConditionDto, PromeRotation.Timeline.Core.ICondition>, class System.Func`1<PromeRotation.Timeline.Core.ICondition>) -> void
+  - get_EqualityContract: () -> System.Type
+  - get_TypeKey: () -> string
+  - set_TypeKey: (<0x80>) -> <0x1f>
+  - get_DisplayName: () -> string
+  - set_DisplayName: (<0x80>) -> <0x1f>
+  - get_Description: () -> string
+  - set_Description: (<0x80>) -> <0x1f>
+  - get_CreateFromDto: () -> class System.Func`2<PromeRotation.Timeline.Core.ConditionDto, PromeRotation.Timeline.Core.ICondition>
+  - set_CreateFromDto: (<0x80>) -> <0x1f>
+  - get_CreateDefault: () -> class System.Func`1<PromeRotation.Timeline.Core.ICondition>
+  - set_CreateDefault: (<0x80>) -> <0x1f>
+  - ToString: () -> string
+  - PrintMembers: (System.Text.StringBuilder) -> bool
+  - op_Inequality: (PromeRotation.Plugins.PromeTimelineConditionDescriptor, PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> bool
+  - op_Equality: (PromeRotation.Plugins.PromeTimelineConditionDescriptor, PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> bool
+  - GetHashCode: () -> int
+  - Equals: (object) -> bool
+  - Equals: (PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> bool
+  - <Clone>$: () -> PromeRotation.Plugins.PromeTimelineConditionDescriptor
+  - .ctor: (PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> void
+  - Deconstruct: (byref, string, byref, string, byref) -> void
+- 字段 (5):
+  - <TypeKey>k__BackingField: string
+  - <DisplayName>k__BackingField: string
+  - <Description>k__BackingField: string
+  - <CreateFromDto>k__BackingField: class System.Func`2<PromeRotation.Timeline.Core.ConditionDto, PromeRotation.Timeline.Core.ICondition>
+  - <CreateDefault>k__BackingField: class System.Func`1<PromeRotation.Timeline.Core.ICondition>
+
+## PromeRotation.Plugins.PromePluginAttribute
+- 继承: TypeSpec#71
+- 方法 (6):
+  - get_Id: () -> string
+  - get_Name: () -> string
+  - get_Author: () -> string
+  - get_Description: () -> string
+  - get_Version: () -> string
+  - .ctor: (string, string, string, string, string) -> void
+- 字段 (5):
+  - <Id>k__BackingField: string
+  - <Name>k__BackingField: string
+  - <Author>k__BackingField: string
+  - <Description>k__BackingField: string
+  - <Version>k__BackingField: string
+
+## PromeRotation.Plugins.PromePluginManager
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (21):
+  - .ctor: () -> void
+  - Initialize: () -> void
+  - Dispose: () -> void
+  - RefreshAllPlugins: () -> void
+  - RefreshAllPluginsAsync: (System.Threading.CancellationToken) -> System.Threading.Tasks.ValueTask
+  - GetPlugins: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>
+  - IsPluginEnabled: (string) -> bool
+  - RemovePluginState: (string) -> void
+  - SetPluginEnabled: (string, bool) -> void
+  - ReloadPlugin: (string) -> bool
+  - ReloadPluginAsync: (string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - DeletePlugin: (string) -> bool
+  - DeletePluginAsync: (string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - TryRestorePluginRegistration: (string, string, bool) -> void
+  - LoadConfig: () -> void
+  - SaveConfig: () -> void
+  - CleanupMissingPluginStates: () -> void
+  - NormalizeConfig: () -> void
+  - NormalizePluginId: (string) -> string
+  - CreateDefaultConfig: () -> PromeRotation.Plugins.PromePluginManagerConfig
+  - .cctor: () -> void
+- 字段 (3):
+  - _jsonOptions: System.Text.Json.JsonSerializerOptions
+  - _configPath: string
+  - _config: PromeRotation.Plugins.PromePluginManagerConfig
+
+## PromeRotation.Plugins.PromePluginManagerConfig
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (5):
+  - get_PluginStates: () -> class System.Collections.Generic.Dictionary`2<string, bool>
+  - set_PluginStates: (class System.Collections.Generic.Dictionary`2<string, bool>) -> void
+  - IsPluginEnabled: (string, bool) -> bool
+  - SetPluginEnabled: (string, bool) -> void
+  - .ctor: () -> void
+- 字段 (1):
+  - <PluginStates>k__BackingField: class System.Collections.Generic.Dictionary`2<string, bool>
+
+## PromeRotation.Plugins.PromePluginManagerWindow
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (18):
+  - .ctor: (PromeRotation.Plugins.PromePluginManager, System.Action) -> void
+  - DrawEmbedded: () -> void
+  - Dispose: () -> void
+  - DrawManagerTab: () -> void
+  - DrawToolbar: () -> void
+  - DrawPluginListPanel: (class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>, float, float) -> void
+  - DrawPluginDetailPanel: (class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>, float) -> void
+  - DrawPluginMetadata: (PromeRotation.Plugins.PromePluginRegistration) -> void
+  - DrawPluginActionButtons: (PromeRotation.Plugins.PromePluginRegistration) -> void
+  - DrawPluginConfigArea: (PromeRotation.Plugins.PromePluginRegistration) -> void
+  - DrawDeleteConfirmPopup: () -> void
+  - EnsureSelection: (class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>) -> void
+  - GetSelectedPlugin: (class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>) -> PromeRotation.Plugins.PromePluginRegistration
+  - GetLoadStatus: (PromeRotation.Plugins.PromePluginRegistration) -> string
+  - GetStateSummary: (PromeRotation.Plugins.PromePluginRegistration) -> string
+  - GetPluginStateColor: (PromeRotation.Plugins.PromePluginRegistration, bool) -> System.Numerics.Vector4
+  - OpenPluginFolder: () -> void
+  - <EnsureSelection>b__18_0: (PromeRotation.Plugins.PromePluginRegistration) -> bool
+- 字段 (7):
+  - PluginListPanelWidth: float
+  - _manager: PromeRotation.Plugins.PromePluginManager
+  - _downloadPanel: PromeRotation.DownloadSystem.Plugins.PromePluginDownloadPanel
+  - _publishPanel: PromeRotation.DownloadSystem.Plugins.PromePluginPublishPanel
+  - _selectedPluginId: string
+  - _pendingDeletePluginId: string
+  - _pendingDeletePopupOpen: bool
+
+## PromeRotation.Plugins.PromePluginRegistration
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (25):
+  - get_PluginType: () -> System.Type
+  - set_PluginType: (<0x80>) -> <0x1f>
+  - get_Metadata: () -> PromeRotation.Plugins.PromePluginAttribute
+  - set_Metadata: (<0x80>) -> <0x1f>
+  - get_SourceDllPath: () -> string
+  - set_SourceDllPath: (<0x80>) -> <0x1f>
+  - get_ShadowDllPath: () -> string
+  - set_ShadowDllPath: (<0x80>) -> <0x1f>
+  - get_ExternalAssembly: () -> System.Reflection.Assembly
+  - set_ExternalAssembly: (<0x80>) -> <0x1f>
+  - get_Loader: () -> PromeRotation.Managers.PromeExAssemblyLoader
+  - set_Loader: (<0x80>) -> <0x1f>
+  - get_Instance: () -> PromeRotation.Plugins.IPromePlugin
+  - set_Instance: (PromeRotation.Plugins.IPromePlugin) -> void
+  - get_IsLoaded: () -> bool
+  - set_IsLoaded: (bool) -> void
+  - get_IsEnabled: () -> bool
+  - set_IsEnabled: (bool) -> void
+  - get_PackageFolder: () -> string
+  - set_PackageFolder: (<0x80>) -> <0x1f>
+  - get_LastError: () -> string
+  - set_LastError: (string) -> void
+  - get_HasConfigUI: () -> bool
+  - set_HasConfigUI: (bool) -> void
+  - .ctor: (System.Type, PromeRotation.Plugins.PromePluginAttribute, string, string, System.Reflection.Assembly, PromeRotation.Managers.PromeExAssemblyLoader, string) -> void
+- 字段 (12):
+  - <PluginType>k__BackingField: System.Type
+  - <Metadata>k__BackingField: PromeRotation.Plugins.PromePluginAttribute
+  - <SourceDllPath>k__BackingField: string
+  - <ShadowDllPath>k__BackingField: string
+  - <ExternalAssembly>k__BackingField: System.Reflection.Assembly
+  - <Loader>k__BackingField: PromeRotation.Managers.PromeExAssemblyLoader
+  - <Instance>k__BackingField: PromeRotation.Plugins.IPromePlugin
+  - <IsLoaded>k__BackingField: bool
+  - <IsEnabled>k__BackingField: bool
+  - <PackageFolder>k__BackingField: string
+  - <LastError>k__BackingField: string
+  - <HasConfigUI>k__BackingField: bool
+
+## PromeRotation.Plugins.PromePluginRegistry
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (46):
+  - Refresh: () -> void
+  - RefreshAsync: (System.Threading.CancellationToken) -> System.Threading.Tasks.ValueTask
+  - GetAll: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromePluginRegistration>
+  - FindById: (string) -> PromeRotation.Plugins.PromePluginRegistration
+  - TryRegisterPluginPackage: (string, byref, string) -> bool
+  - TryValidateExternalPackageForInstall: (string, byref, .ExternalPackageMetadata) -> bool
+  - Dispose: () -> void
+  - DisposeAsync: (System.Threading.CancellationToken) -> System.Threading.Tasks.ValueTask
+  - LoadPlugin: (string) -> bool
+  - UnloadPlugin: (string) -> bool
+  - UnloadPluginAndUnloadContext: (string) -> bool
+  - UnloadPluginAndUnloadContextAsync: (string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - UnloadPluginInternal: (string, bool) -> bool
+  - ReloadPlugin: (string) -> bool
+  - ReloadPluginAsync: (string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - LoadAllEnabledPlugins: (class System.Func`2<string, bool>) -> void
+  - UnloadAllPlugins: () -> void
+  - TryStopPluginInstance: (PromeRotation.Plugins.IPromePlugin, string) -> void
+  - CleanupPluginHosting: (PromeRotation.Plugins.IPromePlugin, string, System.TimeSpan) -> void
+  - CleanupPluginHostingAsync: (PromeRotation.Plugins.IPromePlugin, string, System.TimeSpan, System.Threading.CancellationToken) -> System.Threading.Tasks.ValueTask
+  - CleanupPluginHostingInBackground: (PromeRotation.Plugins.IPromePlugin, string, string) -> void
+  - GetPluginOwnerId: (PromeRotation.Plugins.IPromePlugin, string) -> string
+  - RegisterTimelineExtensionIfNeeded: (PromeRotation.Plugins.PromePluginRegistration, PromeRotation.Plugins.IPromePlugin) -> void
+  - TryUnloadRegistrationLoader: (PromeRotation.Managers.PromeExAssemblyLoader, string) -> bool
+  - TryUnloadRegistrationLoaderAsync: (PromeRotation.Managers.PromeExAssemblyLoader, string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - TryUnloadLoaderAndWaitCollected: (PromeRotation.Managers.PromeExAssemblyLoader, string) -> bool
+  - TryUnloadLoaderAndWaitCollectedAsync: (PromeRotation.Managers.PromeExAssemblyLoader, string, System.Threading.CancellationToken) -> valuetype System.Threading.Tasks.ValueTask`1<bool>
+  - ScanPluginPackages: (string) -> void
+  - TryScanPluginPackage: (string, System.Runtime.Loader.AssemblyLoadContext) -> bool
+  - TryBuildPluginRegistration: (string, System.Runtime.Loader.AssemblyLoadContext, byref, PromeRotation.Plugins.PromePluginRegistration) -> bool
+  - TryBuildPluginRegistration: (string, System.Runtime.Loader.AssemblyLoadContext, byref, PromeRotation.Plugins.PromePluginRegistration, byref, string) -> bool
+  - TryUnloadLoader: (PromeRotation.Managers.PromeExAssemblyLoader, string) -> void
+  - IsPluginTypeCandidate: (System.Type) -> bool
+  - IsPluginTypeDeclaration: (System.Type) -> bool
+  - GetLoadableTypes: (System.Reflection.Assembly, string) -> class System.Collections.Generic.IEnumerable`1<System.Type>
+  - EnsurePluginFolder: () -> string
+  - GetPluginCacheRoot: () -> string
+  - EnsurePluginCacheRoot: () -> string
+  - TryResolveMainDll: (string, System.Runtime.Loader.AssemblyLoadContext, byref, string) -> bool
+  - TryResolveMainDllByPluginType: (string, class System.Collections.Generic.IReadOnlyList`1<string>, System.Runtime.Loader.AssemblyLoadContext, byref, string) -> bool
+  - GetProbeLoadableTypes: (System.Reflection.Assembly) -> class System.Collections.Generic.IEnumerable`1<System.Type>
+  - IsPluginTypeCandidateSafe: (System.Type) -> bool
+  - CopyPluginPackageToShadow: (string, string) -> valuetype System.ValueTuple`2<string, string>
+  - CopyDirectoryRecursively: (string, string) -> void
+  - TryCleanupCacheFolders: () -> void
+  - .cctor: () -> void
+- 字段 (5):
+  - AsyncStopTimeout: System.TimeSpan
+  - GcBackoffMs: int[]
+  - _registrations: class System.Collections.Generic.List`1<PromeRotation.Plugins.PromePluginRegistration>
+  - _registrationsById: class System.Collections.Generic.Dictionary`2<string, PromeRotation.Plugins.PromePluginRegistration>
+  - _externalLoaders: class System.Collections.Generic.List`1<PromeRotation.Managers.PromeExAssemblyLoader>
+
+## PromeRotation.Plugins.PromeTimelinePluginRegistry
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (10):
+  - GetActionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromeTimelineActionDescriptor>
+  - GetConditionDescriptors: () -> class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Plugins.PromeTimelineConditionDescriptor>
+  - Register: (string, PromeRotation.Plugins.IPromeTimelinePlugin) -> void
+  - Unregister: (string) -> void
+  - RegisterAction: (string, PromeRotation.Plugins.PromeTimelineActionDescriptor) -> void
+  - RegisterCondition: (string, PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> void
+  - ValidateActionDescriptor: (PromeRotation.Plugins.PromeTimelineActionDescriptor) -> void
+  - ValidateConditionDescriptor: (PromeRotation.Plugins.PromeTimelineConditionDescriptor) -> void
+  - NormalizeKey: (string, string) -> string
+  - .cctor: () -> void
+- 字段 (2):
+  - Actions: class System.Collections.Generic.Dictionary`2<string, .RegisteredAction>
+  - Conditions: class System.Collections.Generic.Dictionary`2<string, .RegisteredCondition>
+
+## PromeRotation.Managers.ActionQueueManager
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (32):
+  - get_GcdCount: () -> int
+  - get_OffGcdCount: () -> int
+  - EnqueueAndRecord: (PromeRotation.Data.PAction, bool) -> void
+  - EnqueueAndRecord: (class System.Collections.Generic.IReadOnlyList`1<PromeRotation.Data.PAction>, bool) -> void
+  - .cctor: () -> void
+  - EnqueueForced: (PromeRotation.Data.PAction) -> void
+  - Enqueue: (PromeRotation.Data.PAction, bool) -> void
+  - Enqueue: (class System.Collections.Generic.List`1<PromeRotation.Data.PAction>, bool) -> void
+  - EnqueueOffGcdList: (class System.Collections.Generic.List`1<PromeRotation.Data.PAction>, bool) -> void
+  - ClearNormalQueues: () -> void
+  - ClearAllQueues: () -> void
+  - GetQueueStatus: () -> class System.Collections.Generic.Dictionary`2<string, class System.Collections.Generic.List`1<string>>
+  - DiscardNextCommand: () -> void
+  - GetNextForcedCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextHighPriorityGcdCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextHighPriorityAlwaysCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextHighPriorityOffGcdCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextNormalGcdCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextNormalAlwaysCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetNextNormalOffGcdCommand: () -> PromeRotation.Managers.IActionCommand
+  - PeekNextHighPriorityCommand: () -> PromeRotation.Managers.IActionCommand
+  - GetQueue: (PromeRotation.Data.ActionType, bool) -> class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - SnapshotQueue: (class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>) -> class System.Collections.Generic.List`1<string>
+  - GetNextActionFromQueue: (class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>) -> PromeRotation.Data.PAction
+  - GetNextActionCommand: () -> PromeRotation.Managers.IActionCommand
+  - HasActionsInQueue: () -> bool
+  - HasHighPriorityAction: () -> bool
+  - HasForcedActions: () -> bool
+  - HasActionsInAlwaysQueue: () -> bool
+  - HasActionsInGcdQueue: () -> bool
+  - HasActionsInOffGcdQueue: () -> bool
+  - QueueCount: (string) -> int
+- 字段 (8):
+  - _forcedQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _highPriorityAlwaysQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _highPriorityGcdQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _highPriorityOffGcdQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _normalPriorityAlwaysQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _normalPriorityGcdQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _normalPriorityOffGcdQueue: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>
+  - _queueLookup: class System.Collections.Generic.Queue`1<PromeRotation.Managers.IActionCommand>[?,?]
+
+## PromeRotation.Helpers.ActionHelper
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (39):
+  - get_Watchdog: () -> PromeRotation.Service.GcdWatchdogService
+  - set_Watchdog: (PromeRotation.Service.GcdWatchdogService) -> void
+  - GetGcdTotal: () -> float
+  - GetGcdElapsed: () -> float
+  - GetItemCooldown: (uint) -> float
+  - IsItemOnCooldown: (uint) -> bool
+  - GetGcdIsActive: () -> bool
+  - GetGcdRemain: () -> float
+  - IsWeaveDelayReady: (PromeRotation.Data.PAction, byref) -> bool
+  - GetAnimationLock: () -> float
+  - GetComboLeftTime: () -> float
+  - GetCastTimeTotal: () -> float
+  - GetCastTimeElapsed: () -> float
+  - GetCastTimeRemain: () -> float
+  - GetActionCooldown: (uint) -> float
+  - GetActionCharges: (uint) -> float
+  - GetActionRecastTimeElapsed: (uint) -> float
+  - GetActionRecastTime: (uint) -> float
+  - UseActionLocation: (uint, ulong, System.Numerics.Vector3) -> void
+  - GetLastComboID: () -> uint
+  - GetAdjustedActionId: (uint) -> uint
+  - GetMaxCharges: (uint) -> int
+  - GetCursorPosition: () -> System.Numerics.Vector3
+  - SetAnimetionLock: () -> void
+  - IsActionHighlighted: (uint) -> bool
+  - IsActionLevelEnough: (uint) -> bool
+  - IsActionQuestUnlocked: (uint) -> bool
+  - IsActionAvailableByLevelAndQuest: (uint) -> bool
+  - CanCast: (uint, Dalamud.Game.ClientState.Objects.Types.IBattleChara) -> bool
+  - IsReady: (uint) -> bool
+  - IsUnlocked: (uint) -> bool
+  - ResolveActionType: (uint) -> PromeRotation.Data.ActionType
+  - TryResolveActionType: (uint, byref) -> bool
+  - TryResolveActionTargetType: (uint, byref) -> bool
+  - TryGetActionRange: (uint, byref) -> bool
+  - RecordAction: (uint) -> void
+  - RecentlyUsed: (uint, int) -> bool
+  - .ctor: () -> void
+  - .cctor: () -> void
+- 字段 (5):
+  - usedAtUtc: class System.Collections.Generic.Dictionary`2<uint, System.DateTime>
+  - <Watchdog>k__BackingField: PromeRotation.Service.GcdWatchdogService
+  - SpellCategory: uint
+  - WeaponskillCategory: uint
+  - AbilityCategory: uint
+
+## PromeRotation.Data.AcrState
+- 继承: TypeSpec#19
+- 字段 (4):
+  - value__: int
+  - Off: PromeRotation.Data.AcrState
+  - Hold: PromeRotation.Data.AcrState
+  - On: PromeRotation.Data.AcrState
+
+## PromeRotation.Data.PAction
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (11):
+  - .ctor: (uint, PromeRotation.Data.ActionType, PromeRotation.Data.ActionTargetType) -> void
+  - get_RequiresVerification: () -> bool
+  - set_RequiresVerification: (bool) -> void
+  - get_MinGcdElapsedForWeaveMs: () -> int
+  - set_MinGcdElapsedForWeaveMs: (int) -> void
+  - get_NetworkTid: () -> uint
+  - set_NetworkTid: (uint) -> void
+  - get_IsLocationAction: () -> bool
+  - set_IsLocationAction: (bool) -> void
+  - get_Position: () -> System.Numerics.Vector3
+  - set_Position: (System.Numerics.Vector3) -> void
+- 字段 (8):
+  - ActionId: uint
+  - Target: PromeRotation.Data.ActionTargetType
+  - Type: PromeRotation.Data.ActionType
+  - <RequiresVerification>k__BackingField: bool
+  - <MinGcdElapsedForWeaveMs>k__BackingField: int
+  - <NetworkTid>k__BackingField: uint
+  - <IsLocationAction>k__BackingField: bool
+  - <Position>k__BackingField: System.Numerics.Vector3
+
+## PromeRotation.Data.ActionType
+- 继承: TypeSpec#19
+- 字段 (6):
+  - value__: int
+  - Gcd: PromeRotation.Data.ActionType
+  - OffGcd: PromeRotation.Data.ActionType
+  - Always: PromeRotation.Data.ActionType
+  - Item: PromeRotation.Data.ActionType
+  - LimitBreak: PromeRotation.Data.ActionType
+
+## PromeRotation.Core.Core
+- 继承: System.Runtime.CompilerServices.RefSafetyRulesAttribute
+- 方法 (3):
+  - get_Me: () -> Dalamud.Game.ClientState.Objects.Types.IBattleChara
+  - get_Target: () -> Dalamud.Game.ClientState.Objects.Types.IBattleChara
+  - SetTarget: (Dalamud.Game.ClientState.Objects.Types.IBattleChara) -> void
+
