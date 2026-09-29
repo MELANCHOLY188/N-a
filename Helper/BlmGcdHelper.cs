@@ -22,6 +22,9 @@ public static class BlmGcdHelper
 
     public static uint Mp => Me?.CurrentMp ?? 0;
 
+    /// <summary>玩家等级（Los CheckXenoglossy 分档用）</summary>
+    public static byte Level => Me?.Level ?? 100;
+
     private static Vector3 _lastPos;
     private static bool _hasLastPos;
 
@@ -94,4 +97,37 @@ public static class BlmGcdHelper
 
     /// <summary>AOE 场景：QT 开启 + 5 码内 2 个以上敌人</summary>
     public static bool AoeScene => BlmQT.Enabled(BlmQT.AOE) && EnemyCountNear(5f) >= 2;
+
+    // ---- 瞬发/CD（对齐 Los HasFireToIceInstantAssurance）----
+
+    /// <summary>现在身上有瞬发 buff（迅捷 167 / 三连 1211）</summary>
+    public static bool HasInstantCastBuff =>
+        HasStatus(Me, BlmSkills.SwiftcastBuff) || HasStatus(Me, BlmSkills.TriplecastBuff);
+
+    /// <summary>技能剩余冷却秒（框架 ActionHelper）</summary>
+    public static float ActionCooldown(uint id)
+    {
+        try { return PromeRotation.Helpers.ActionHelper.GetActionCooldown(id); }
+        catch { return 999f; }
+    }
+
+    /// <summary>迅捷将在 1 个 GCD（2.5s）内转好</summary>
+    public static bool SwiftcastReadyNextGcd => ActionCooldown(BlmSkills.Swiftcast) < 2.5f;
+
+    /// <summary>三连有充能，或将在 1 个 GCD 内转好</summary>
+    public static bool TriplecastAvailable =>
+        ActionCooldown(BlmSkills.Triplecast) < 2.5f || TriplecastHasCharge;
+
+    private static bool TriplecastHasCharge
+    {
+        get
+        {
+            try { return PromeRotation.Helpers.ActionHelper.GetActionCharges(BlmSkills.Triplecast) > 0f; }
+            catch { return false; }
+        }
+    }
+
+    /// <summary>转冰后能立刻瞬发冰系（Los：HasFireToIceInstantAssurance）</summary>
+    public static bool FireToIceInstantAssurance =>
+        HasInstantCastBuff || SwiftcastReadyNextGcd || TriplecastAvailable;
 }
