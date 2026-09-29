@@ -33,6 +33,7 @@ public static class BlmSkills
     // ---- 通用/功能 ----
     public const uint Transpose     = 149;   // 星灵移位
     public const uint Manafont      = 158;   // 魔泉
+    public const uint Manaward      = 157;   // 魔罩（减伤30%）
     public const uint LeyLines      = 3573;  // 黑魔纹
     public const uint Triplecast    = 7421;  // 三连咏唱
     public const uint Swiftcast     = 7561;  // 迅捷咏唱
