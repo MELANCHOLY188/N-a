@@ -1,7 +1,7 @@
 # BlmAcr — 黑魔法师 ACR（PromeRotation）
 
 基于 **PromeRotation** 框架的 FFXIV 黑魔法师（BLM）外部 ACR。
-定位：**输出至上**，循环策略依据 The Balance 7.4 Black Mage 理论，采用官方 Resolver 架构，决策逻辑为原创实现（不照抄其他 ACR）。
+定位：**输出至上**，循环策略依据 The Balance 7.4 Black Mage 理论，采用官方 Resolver 架构，决策逻辑为原创实现。
 
 ## 功能特性
 
