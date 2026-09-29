@@ -13,6 +13,8 @@ public class ManafontOffGcd : IDecisionResolver
 {
     public CheckResult Check()
     {
+        if (!BlmQT.Enabled(BlmQT.自动爆发))
+            return new CheckResult(false, "自动爆发关");
         if (!BlmGcdHelper.Gauge.InAstralFire)
             return new CheckResult(false, "不在火阶段");
         if (BlmGcdHelper.Mp >= 1600)
