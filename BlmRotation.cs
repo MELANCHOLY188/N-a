@@ -116,6 +116,15 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
 
         BlmState.UpdatePhase(BlmGcdHelper.Gauge.InAstralFire);
 
+        // ★ 量谱实时概览（第一行）：确认 ACR 读到的资源
+        var g = BlmGcdHelper.Gauge;
+        RotationManager.GcdSolverStatus.Add(new SolverStatus
+        {
+            Name = "量谱",
+            Success = true,
+            Message = $"AF{g.AstralFireStacks} UI{g.UmbralIceStacks} 心{g.UmbralHearts} 星魂{g.AstralSoulStacks}/6 灵极魂{g.PolyglotStacks}/2 MP{BlmGcdHelper.Mp} 雷首{BlmGcdHelper.HasStatus(BlmGcdHelper.Me, BlmSkills.ThunderheadStatus)}",
+        });
+
         foreach (var r in _gcdResolvers)
         {
             var x = r.Check();
