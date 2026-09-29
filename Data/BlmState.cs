@@ -16,8 +16,14 @@ public static class BlmState
     /// <summary>上次成功返回 oGCD 的时刻（Environment.TickCount）</summary>
     public static int LastOffGcdTime { get; private set; }
 
+    /// <summary>上次成功返回的 GCD 技能 id（Los PreviousGcdMatches 用）</summary>
+    public static uint LastGcdId { get; private set; }
+
     /// <summary>当前 AF 阶段已打出的炽炎数量</summary>
     public static int FireIVCount => _fireIVCount;
+
+    /// <summary>记录最近一次 GCD 动作（用于转火"上一发冰澈"判断）</summary>
+    public static void MarkGcd(uint actionId) => LastGcdId = actionId;
 
     /// <summary>每帧同步 AF 阶段，进入新阶段时重置炽炎计数</summary>
     public static void UpdatePhase(bool inAF)
