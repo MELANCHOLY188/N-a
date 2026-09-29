@@ -18,6 +18,9 @@ public class ThunderDotGcd : IDecisionResolver
             return new CheckResult(false, "雷DoT维持关");
         if (BlmGcdHelper.AoeScene)
             return new CheckResult(false, "AOE场景交给AOE填充");
+        // 火阶段不做雷维护：无雷首时闪雷是读条，会打断爆发；转冰后第一时间补
+        if (BlmGcdHelper.Gauge.InAstralFire)
+            return new CheckResult(false, "火阶段优先爆发，转冰后补雷");
         if (BlmGcdHelper.DotNeedsRefresh(BlmGcdHelper.Target, BlmSkills.HighThunderDot))
             return new CheckResult(true, "就绪");
         return new CheckResult(false, "高雷云DoT健康");
