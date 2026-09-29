@@ -56,17 +56,23 @@ public static class BlmGcdHelper
         return false;
     }
 
-    /// <summary>目标指定 DoT（3871 高雷云 / 3872 高雷二）是否需要刷新</summary>
+    /// <summary>目标指定 DoT（3871 高雷云 / 3872 高雷二）是否需要刷新。
+    /// 对齐 Los/官方壳：RemainingTime 可能为负，取 Abs；多条重复状态取最大剩余。</summary>
     public static bool DotNeedsRefresh(IBattleChara? target, ushort dotStatusId)
     {
         if (target == null || target.IsDead) return false;
         float threshold = BlmSettings.Instance.DotRefreshSeconds;
+        float maxRem = 0f;
         foreach (var s in target.StatusList)
         {
             if (s.StatusId == dotStatusId)
-                return s.RemainingTime < threshold;
+            {
+                float rem = s.RemainingTime < 0f ? -s.RemainingTime : s.RemainingTime;
+                if (rem > maxRem) maxRem = rem;
+            }
         }
-        return true; // 目标身上没有该 DoT
+        if (maxRem <= 0f) return true; // 目标身上没有有效 DoT
+        return maxRem < threshold;     // 剩余低于阈值才刷新
     }
 
     /// <summary>以自身为圆心 radius 码内的可攻击敌人数量</summary>
