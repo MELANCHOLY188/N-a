@@ -2,6 +2,7 @@
 // BlmGcdHelper - 决策器共享静态工具
 // 量谱 / 玩家 / 目标 / DoT / 敌数 / AOE 场景判断
 // ============================================================
+using System.Numerics;
 using Dalamud.Game.ClientState.JobGauge.Types;
 using Dalamud.Game.ClientState.Objects.Types;
 using ECommons.DalamudServices;
@@ -19,6 +20,29 @@ public static class BlmGcdHelper
     public static IBattleChara? Target => Core.Target;
 
     public static uint Mp => Me?.CurrentMp ?? 0;
+
+    private static Vector3 _lastPos;
+    private static bool _hasLastPos;
+
+    /// <summary>移动检测：与上一帧位置比较，位移超过阈值视为移动中</summary>
+    public static bool IsMovingNow
+    {
+        get
+        {
+            var me = Me;
+            if (me == null) return false;
+            var p = me.Position;
+            if (!_hasLastPos)
+            {
+                _lastPos = p;
+                _hasLastPos = true;
+                return false;
+            }
+            bool moving = (p - _lastPos).LengthSquared() > 0.0001f; // 每帧位移 >1cm
+            _lastPos = p;
+            return moving;
+        }
+    }
 
     public static PAction Gcd(uint id) => new(id, ActionType.Gcd, ActionTargetType.Target);
     public static PAction Ocgd(uint id) => new(id, ActionType.OffGcd, ActionTargetType.Self);
