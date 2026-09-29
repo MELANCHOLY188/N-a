@@ -13,6 +13,8 @@ public class AmplifierOffGcd : IDecisionResolver
 {
     public CheckResult Check()
     {
+        if (!BlmQT.Enabled(BlmQT.自动爆发))
+            return new CheckResult(false, "自动爆发关");
         if (BlmGcdHelper.Gauge.PolyglotStacks >= 2)
             return new CheckResult(false, $"灵极魂{BlmGcdHelper.Gauge.PolyglotStacks}/2会溢出");
         if (!ActionHelper.IsReady(BlmSkills.Amplifier))
