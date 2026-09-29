@@ -83,7 +83,14 @@ public sealed class BlmRotation : IRotation, IRotationMeta, IRotationLifecycle
         foreach (var r in _gcdResolvers)
         {
             if (r.Check().Success)
-                return r.GetAction();
+            {
+                var a = r.GetAction();
+                // 记录最近 GCD（Los PreviousGcdMatches 用：转火"上一发冰澈"判断）
+                BlmState.MarkGcd(a?.ActionId ?? 0);
+                // 炽炎计数（Los SanitizeLoopFacts：每发炽炎 +1 星魂；火阶段计数）
+                if (a?.ActionId == BlmSkills.FireIV) BlmState.CountFireIV();
+                return a;
+            }
         }
         return null;
     }
