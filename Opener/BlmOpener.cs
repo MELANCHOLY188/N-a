@@ -4,6 +4,7 @@
 // 倒计时 3.5s 预读爆炎 -> 开怪后 5 炽炎 + 魔泉 + 7 炽炎
 //   -> 两次耀星 -> 绝望 -> 转冰回正常循环
 // ============================================================
+using PromeRotation.Core;
 using PromeRotation.Data;
 using PromeRotation.Rotation;
 
@@ -17,6 +18,17 @@ public sealed class BlmOpener : IOpener
 
     public void InitializeCountdown(CountDownHandler handler)
     {
+        // 倒计时 6 秒预读雷系技能：命中获得"雷首"(3870)，开怪后才能放高雷云
+        var me = Core.Me;
+        uint thunderId = BlmSkills.Thunder;
+        if (me != null)
+        {
+            thunderId = me.Level >= 62 ? BlmSkills.ThunderIV
+                      : me.Level >= 40 ? BlmSkills.ThunderIII
+                      : BlmSkills.Thunder;
+        }
+        handler.AddAction(6000, new PAction(thunderId, ActionType.Gcd, ActionTargetType.Target));
+
         // 倒计时剩余 3.5 秒预读爆炎，开战瞬间处于 AF3
         handler.AddAction(PrecastMs, new PAction(BlmSkills.FireIII, ActionType.Gcd, ActionTargetType.Target));
     }
