@@ -1,7 +1,8 @@
 // ============================================================
 // ManafontOffGcd - 魔泉（oGCD #2）
-// 火阶段已打 2 发炽炎后开启：回满蓝，让火阶段从 6 发变 12 发
-// （对齐 The Balance：魔泉=延长火阶段，不是等 MP 打空）
+// 常规循环续命用（对齐 Los/The Balance）：
+//   火阶段 MP 见底(<800)且星魂未满时开启，多打 1-2 发炽炎；
+//   起手爆发魔泉由起手序列负责（5+7 第 5 发后），这里不重复开。
 // ============================================================
 using PromeRotation.Resolvers;
 using PromeRotation.Helpers;
@@ -18,12 +19,18 @@ public class ManafontOffGcd : IDecisionResolver
             return new CheckResult(false, "自动爆发关");
         if (!BlmGcdHelper.Gauge.InAstralFire)
             return new CheckResult(false, "不在火阶段");
-        // 至少打满 2 发炽炎再开（保证后半段 6 发能吃完回蓝）
-        if (BlmState.FireIVCount < 2)
-            return new CheckResult(false, $"炽炎{BlmState.FireIVCount}/2未到开启时机");
-        if (BlmGcdHelper.Mp < 8000 && ActionHelper.IsReady(BlmSkills.Manafont))
-            return new CheckResult(true, "就绪");
-        return new CheckResult(false, "MP充足或魔泉CD");
+        // 星魂满 6：不需要续（该转冰/耀星了）
+        if (BlmGcdHelper.Gauge.AstralSoulStacks >= 6)
+            return new CheckResult(false, "星魂已满无需续");
+        // 火层未满 3（转火中）不开
+        if (BlmGcdHelper.Gauge.AstralFireStacks < 3)
+            return new CheckResult(false, "火层未满");
+        // MP 见底才开（续命多打 1-2 发），MP 充足时留给转冰
+        if (BlmGcdHelper.Mp >= 800)
+            return new CheckResult(false, $"MP充足({BlmGcdHelper.Mp})无需魔泉");
+        if (!ActionHelper.IsReady(BlmSkills.Manafont))
+            return new CheckResult(false, "魔泉CD");
+        return new CheckResult(true, "MP见底续命");
     }
 
     public PromeRotation.Data.PAction GetAction() => BlmGcdHelper.Ocgd(BlmSkills.Manafont);
